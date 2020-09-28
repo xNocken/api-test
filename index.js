@@ -1,11 +1,8 @@
-const http = require('https');
+const http = require('http');
 const fs = require('fs');
 const app = require('./src/app');
 
-const server = http.createServer({
-  key: fs.readFileSync('./privkey.pem'),
-  cert: fs.readFileSync('./cert.pem'),
-},app);
+const server = http.createServer(app);
 
 const foldersToCreate = [
   './data',
@@ -20,6 +17,6 @@ foldersToCreate.forEach((folder) => {
   }
 });
 
-app.set('port', 443);
+app.set('port', 80);
 
-server.listen(443);
+server.listen(80);

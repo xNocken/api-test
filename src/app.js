@@ -5,6 +5,6 @@ const app = express();
 
 app.use(auth);
 app.use(express.json());
-app.use('/api/v:v(\\d)/', testRoutes)
+app.use('/api/v1/', testRoutes)
 
 module.exports = app;

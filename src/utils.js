@@ -37,14 +37,10 @@ const isSnowflake = (snowflakeStr) => {
   const processId = parseInt(snowflakeBin.slice(48, 52), 2);
   const increment = parseInt(snowflakeBin.slice(53, 64), 2);
 
-  if (timestamp > epoch
+  return timestamp > epoch
     && typeof workerId === 'number'
     && processId === 0
-    && increment >= 0) {
-    return true;
-  }
-
-  return false;
+    && increment >= 0;
 };
 
 const btoa = (string) => Buffer.from(string, 'base64').toString('ascii');
